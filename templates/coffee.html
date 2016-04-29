@@ -1,0 +1,36 @@
+{% extends 'bootstrap/base.html'%}
+{% block title %} Phoenix Coffee {% endblock %}
+{% block head %}
+{% include 'head.html'%}
+{% endblock %}
+{% block navbar %}  
+{% include 'nav.html'%}   
+{% endblock %}
+{% block content %}
+{% block header %}  
+{% include 'main_header.html'%}  
+{% endblock %}
+<div class="container">
+   <div class="row">
+      <div class="col-lg-6">
+         <h4>Blank</h4>
+         <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+         <h4>Blank</h4>
+         <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+         <h4>Blank</h4>
+         <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+      </div>
+      <div class="col-lg-6">
+         <h4>Blank</h4>
+         <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+         <h4>Blank</h4>
+         <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+         <h4>Blank</h4>
+         <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+      </div>
+   </div>
+</div>
+{% block footer %}
+{% include 'footer.html'%}
+{% endblock %}
+{% endblock %}
