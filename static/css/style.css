@@ -3,7 +3,52 @@ body {
     height: 100%;
     margin: 0px;
     font-family: 'Lato', sans-serif;
+
 }
+p {
+    font-size: 14pt;
+}
+.profile_padding{
+    padding: 40px;
+}
+.flip-container, .flip-container-s {
+    display: block;
+    margin: auto;
+}
+blockquote {
+position: relative;
+border:none;
+margin-top: 20px;
+}
+blockquote:before {
+    content: "\201C";
+    position: absolute;
+    z-index: 1;
+    top: -15px;
+    left: -15px;
+    font: 80px/1 Georgia, serif;
+    color: #1e1e1e;
+}
+blockquote:after {
+     content: "\201D";
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    font: 80px/.25 Georgia, serif;
+    color: #1e1e1e;
+}
+blockquote p {
+  display: inline;
+}
+section{
+    padding-bottom: 70px;
+    padding-top: 50px;
+}
+
+.grey{
+    background-color: #f8f8f8;
+}
+
 /*Navigation*/
 
 .navbar-default .navbar-brand {
@@ -68,11 +113,11 @@ nav a {
     overflow: hidden;
 }
 .main_header {
-    height: 30%;
+    height: 40%;
     overflow: hidden;
 }
 .banner_top {
-    padding: 100px 0;
+    height: 100%;
     color: #f8f8f8;
     background: no-repeat top center;
     background-size: cover;
@@ -120,6 +165,8 @@ nav a {
     background-position: center;
     background-size: cover;
 }
+.profile
+{margin: auto; width: 100%; height: 100%; background-color: rgb(255, 255, 255); border: 3px solid rgb(255, 255, 255); border-top-left-radius: 100%; border-top-right-radius: 100%; border-bottom-right-radius: 100%; border-bottom-left-radius: 100%; top: 0px; position: relative; overflow: hidden;}
 /*Footer*/
 
 footer {
@@ -128,4 +175,46 @@ footer {
 }
 p.copyright {
     margin: 15px 0 0;
+}
+
+/* entire container, keeps perspective */
+.flip-container, .flip-container-s {
+    perspective: 1000;
+}
+    /* flip the pane when hovered */
+    .flip-container:hover .flipper, .flip-container.hover .flipper, .flip-container-s:hover .flipper, .flip-container-s.hover .flipper {
+        transform: rotateY(180deg);
+    }
+
+.flip-container, .front, .back {
+
+    height: 250px;
+    width: 250px;
+}
+
+.flip-container-s, .front-s, .back-s {
+
+    height: 175px;
+    width: 175px;
+}
+
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.front, .back, .front-s, .back-s {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.front, .front-s {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+.back, .back-s {
+    transform: rotateY(180deg);
 }
