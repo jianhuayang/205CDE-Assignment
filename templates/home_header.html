@@ -8,16 +8,16 @@
       </ol>
       <div class="carousel-inner" role="listbox">
          <div class="item active">
-            <div class="fill" style="background-image:url('/static/img/slider_1.jpg');"></div>
+            <div class="fill" style="background-image:url({{url_for('static', filename='img/slider_1.jpg')}});"></div>
          </div>
          <div class="item">
-            <div class="fill" style="background-image:url('/static/img/slider_2.jpg');"></div>
+            <div class="fill" style="background-image:url({{url_for('static', filename='img/slider_2.jpg')}});"></div>
          </div>
          <div class="item">
-            <div class="fill" style="background-image:url('/static/img/slider_3.jpg');"></div>
+            <div class="fill" style="background-image:url({{url_for('static', filename='img/slider_3.jpg')}});"></div>
          </div>
          <div class="item">
-            <div class="fill" style="background-image:url('/static/img/slider_4.jpg');"></div>
+            <div class="fill" style="background-image:url({{url_for('static', filename='img/slider_4.jpg')}});"></div>
          </div>
       </div>
       <a class="left carousel-control" href="#mainCarousel" role="button" data-slide="prev">
