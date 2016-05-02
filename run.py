@@ -34,15 +34,15 @@ def send_static(path):
 
 @app.route('/')
 def home():
-    return render_template('index.html', banner="static/img/slider_2.jpg")
+    return render_template('index.html', banner="static/img/slider_1.jpg", name='Home')
 
 @app.route('/about')
 def about():
-    return render_template('about.html', banner="static/img/slider_2.jpg")
+    return render_template('about.html', banner="static/img/slider_2.jpg", name='About' )
 
 @app.route('/coffee')
 def coffee():
-    return render_template('coffee.html', banner="static/img/slider_3.jpg")
+    return render_template('coffee.html', banner="static/img/slider_3.jpg", name='Coffee')
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
@@ -65,7 +65,7 @@ def contact():
             cur = con.cursor()
             cur.execute("INSERT INTO contact (name, email, message) VALUES (?,?,?)", (name, email, message))
             con.commit()    
-    return render_template('contact.html', banner="static/img/slider_4.jpg", contact=form)
+    return render_template('contact.html', banner="static/img/slider_4.jpg", name='Contact', contact=form)
 
 if __name__ == '__main__':
-    app.run(port=8080, host='0.0.0.0', debug=True)
+    app.run(port=5000, host='0.0.0.0', debug=True)

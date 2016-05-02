@@ -1,8 +1,4 @@
-{% extends 'bootstrap/base.html'%}
-{% block title %} Phoenix Coffee {% endblock %}
-{% block head %}
-{% include 'head.html'%}
-{% endblock %}
+{% extends 'base.html' %}
 {% block navbar %}  
 {% include 'nav.html'%}   
 {% endblock %}
@@ -10,26 +6,64 @@
 {% block header %}  
 {% include 'main_header.html'%}  
 {% endblock %}
+<section>
 <div class="container">
    <div class="row">
-      <div class="col-lg-6">
-         <h4>Blank</h4>
-         <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-         <h4>Blank</h4>
-         <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-         <h4>Blank</h4>
-         <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+   <div class="col-sm-12">
+   <h2>Intro</h2>
+   </div>
+   </div>
+   </div>
+   </section>
+<section class="grey">
+<div class="container">
+   <div class="row">
+   <div class="col-sm-12">
+   <h2>Types of coffee</h2>
+   </div>
+            <div class="col-sm-4 profile_padding text-center">
+<a href="#" data-tooltip="Espresso is coffee brewed by forcing a small amount of nearly boiling water under pressure through finely ground coffee beans. Espresso is generally thicker than coffee brewed by other methods, has a higher concentration of suspended and dissolved solids, and has crema on top (a foam with a creamy consistency)">
+        <img src="{{url_for('static', filename='img/coffee/coffee_1.png')}}" class="coffee">
+         </a>      </div>
+                           <div class="col-sm-4 profile_padding text-center">
+<a href="#" data-tooltip="Meaning “stained” - Described as ‘strong, marked or stained’. A touch of steamed foamed milk added to a double shot of coffee extract made from 24gm of fresh ground beans producing 75ml of essence. Served in glass.">
+         <img src="{{url_for('static', filename='img/coffee/coffee_2.png')}}" class="coffee">
+        </a>       </div>
+                           <div class="col-sm-4 profile_padding text-center">
+<a href="#" data-tooltip="A variation of the macchiato by substituting a dollop of whipped cream for the milk froth. Basically a Starbucks invention. Means in Italian: espresso with cream.">
+        <img src="{{url_for('static', filename='img/coffee/coffee_3.png')}}" class="coffee">
+           </a>     </div>
       </div>
-      <div class="col-lg-6">
-         <h4>Blank</h4>
-         <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-         <h4>Blank</h4>
-         <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-         <h4>Blank</h4>
-         <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+         <div class="row">
+            <div class="col-sm-4 profile_padding text-center">
+<a href="#" data-tooltip="A ‘premium milk coffee experience’. Freshly steamed milk without foam served in a tall glass with a shot of espresso coffee.">
+         <img src="{{url_for('static', filename='img/coffee/coffee_4.png')}}" class="coffee">
+                </a></div>
+                           <div class="col-sm-4 profile_padding text-center">
+<a href="#" data-tooltip="Steamed microfroam milk poured through and under the espresso crème produced from one shot (1) of coffee extract made on 12gm of freshly ground coffee producing 38ml of essence. Served in a pre heated vitrified ceramic cup. A common espresso coffee order in Australia/New Zealand. Great for latte art!">
+         <img src="{{url_for('static', filename='img/coffee/coffee_5.png')}}" class="coffee">
+             </a>  </div>
+                           <div class="col-sm-4 profile_padding text-center">
+<a href="#" data-tooltip="A term in Italian that means short and is used to describe an espresso coffee drink made with a half-and-half light cream or semi-skim milk instead of full fat milk.">
+         <img src="{{url_for('static', filename='img/coffee/coffee_6.png')}}" class="coffee">
+         </a>      </div>
+      </div>
+         <div class="row">
+            <div class="col-sm-4 profile_padding text-center">
+<a href="#" data-tooltip="“Cap”:  A ‘traditional morning heart starter’. Steamed foamed velvety milk poured over one shot (1) of coffee oil extract made from 12gm of freshly ground beans producing 38ml of essence. Finished by topping with foam and a sprinkle of chocolate powder. Served in a pre heated vitrified ceramic cup">
+         <img src="{{url_for('static', filename='img/coffee/coffee_7.png')}}" class="coffee">
+           </a>    </div>
+                           <div class="col-sm-4 profile_padding text-center">
+<a href="#" data-tooltip="A combination of chocolate syrup and a shot of espresso, topped with steamed milk and a layer of micro-foam. Finished with a sprinkled of chocolate.">
+         <img src="{{url_for('static', filename='img/coffee/coffee_8.png')}}" class="coffee">
+               </div>
+             </a>              <div class="col-sm-4 profile_padding text-center">
+<a href="#" data-tooltip="Also known as “Lungo” or “Long Black” and made by diluting 1-2 shots of espresso with hot water in order to approximate the texture, flavor and body of an American-style drip coffee. Said to have been originally devised as a sort of insult to Americans who wanted their Italian espresso diluted.">
+         <img src="{{url_for('static', filename='img/coffee/coffee_9.png')}}" class="coffee">
+        </a>       </div>
       </div>
    </div>
-</div>
+</section>
 {% block footer %}
 {% include 'footer.html'%}
 {% endblock %}

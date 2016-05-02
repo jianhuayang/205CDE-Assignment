@@ -4,23 +4,18 @@ body {
     margin: 0px;
     font-family: 'Lato', sans-serif;
 }
-
 p {
-    font-size: 14px;
-}
-h2{
-    margin-bottom: 15px;
-    margin-top: 30px;
+    font-size: 18px;
 }
 section {
-    padding-bottom: 70px;
-    padding-top: 30px;
+    padding: 30px 0 50px 0;
+    background-color: #f7f7f7; 
 }
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
     text-align: center;
 }
 .grey {
-    background-color: #f8f8f8;
+    background-color: #f2f2f2;
 }
 /*Navigation*/
 
@@ -30,14 +25,13 @@ section {
     letter-spacing: 1px;
     font-size: 22pt;
     font-family: 'Source Sans Pro', sans-serif;
-    color: #f7f7f7;
 }
 
 nav a {
     font-weight: normal;
     font-size: 1em;
     text-transform: uppercase;
-    letter-spacing: .18em;
+    letter-spacing: 2px;
     color: #f7f7f7;
 }
 
@@ -97,8 +91,20 @@ nav a {
 }
 
 .main_header {
-    height: 40%;
+    height: 200px;
     overflow: hidden;
+}
+
+.main_header h1{
+    position: relative;
+    margin-left: 15px;
+    bottom: 85px;
+    font-size: 70px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #f7f7f7;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .banner_top {
@@ -117,8 +123,12 @@ nav a {
 
 .banner_bottom h2 {
     margin: 0;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
-    font-size: 3em;
+    font-size: 35px;
+    font-style: italic;
+    background-color: #1e1e1e;
+    opacity: .8;
+    padding: 25px;
+    display: inline-block;
 }
 
 .banner_bottom ul {
@@ -168,18 +178,17 @@ p.copyright {
     margin: 15px 0 0;
 }
 
-/*Profiles*/
+/*Profiles & Coffee*/
 
 .profile_padding {
-    padding: 40px;
+    padding: 40px 40px 0 40px;
 }
 
-.profile {
+.profile, .coffee {
     margin: auto;
     width: 100%;
     height: 100%;
     background-color: rgb(255, 255, 255);
-    border: 3px solid rgb(255, 255, 255);
     border-top-left-radius: 100%;
     border-top-right-radius: 100%;
     border-bottom-right-radius: 100%;
@@ -234,6 +243,7 @@ p.copyright {
     margin: auto;
 }
 /*Quotes*/
+
 blockquote {
     position: relative;
     border: none;
@@ -261,4 +271,56 @@ blockquote:after {
 
 blockquote p {
     display: inline;
+}
+
+/* Coffee Tooltip*/
+
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+[data-tooltip]:before {
+  position: absolute;
+  bottom: 175px;
+  margin-bottom: 5px;
+  padding: 7px;
+  width: 100%;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #1e1e1e;
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+[data-tooltip]:after {
+  position: absolute;
+  bottom: 165px;
+  left: 50%;
+  margin-left: -15px;
+  width: 0;
+  border-top: 15px solid #1e1e1e;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
 }

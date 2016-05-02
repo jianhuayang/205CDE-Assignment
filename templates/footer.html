@@ -2,7 +2,7 @@
    <div class="container">
       <div class="row">
          <div class="col-lg-12">
-            <h2>Quote</h2>
+          <div id="coffee-quotes"></div>  
          </div>
       </div>
    </div>
@@ -12,3 +12,27 @@
       <p>&copy; Phoenix Coffee 2016</p>
    </div>
 </footer>
+  <script>
+    (function() {
+      var quotes = [
+        {
+          text: "Water Is Just Coffee That Hasn’t Reached Its Full Potential",
+        },
+        {
+          text: "I like coffee because it gives me the illusion that I might be awake.",
+        },
+                {
+          text: "As long as there was coffee in the world, how bad could things be?",
+        },
+                {
+          text: "Even bad coffee is better than no coffee at all.",
+        },
+                {
+          text: "Adventure in life is good; consistency in coffee even better",
+        }
+      ];
+      var quote = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById("coffee-quotes").innerHTML =
+        '<h2>"' + quote.text + '"</h2>';
+    })();
+  </script>
