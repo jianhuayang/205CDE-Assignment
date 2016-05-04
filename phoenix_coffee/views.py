@@ -173,7 +173,7 @@ class Contact(db.Model):
 init_login()
 
 # Create admin
-admin = admin.Admin(app, name='Phoneix Coffee Admin', index_view=AdminPannel(), template_mode='bootstrap3')
+admin = admin.Admin(app, name='Phoenix Coffee Admin', index_view=AdminPannel(), template_mode='bootstrap3')
 
 # Add views
 admin.add_view(ModelView(Contact, db.session, name='Contact Form', endpoint='contact'))
