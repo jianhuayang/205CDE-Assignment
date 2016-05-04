@@ -1,0 +1,51 @@
+<div class="banner_bottom" style="background-image:url('{{url_for('static', filename='img/admin.jpg')}}');">
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12">
+            <div id="coffee-quotes"></div>
+         </div>
+      </div>
+   </div>
+</div>
+<footer class="footer">
+   <div class="container">
+      <div class="col-sm-6">
+         <p>&copy; Phoenix Coffee 2016</p>
+      </div>
+      <div class="col-sm-6 text-right">
+         <ul class="list-inline item-details">
+            <li>
+              <a href="/">Main Site</a>
+            </li>
+            |
+            <li>
+              <a href="/admin">Admin Site</a>
+            </li>
+         </ul>
+      </div>
+   </div>
+</footer>
+<script>
+   (function() {
+     var quotes = [
+       {
+         text: "Water Is Just Coffee That Hasn’t Reached Its Full Potential",
+       },
+       {
+         text: "I like coffee because it gives me the illusion that I might be awake.",
+       },
+               {
+         text: "As long as there was coffee in the world, how bad could things be?",
+       },
+               {
+         text: "Even bad coffee is better than no coffee at all.",
+       },
+               {
+         text: "Adventure in life is good; consistency in coffee even better",
+       }
+     ];
+     var quote = quotes[Math.floor(Math.random() * quotes.length)];
+     document.getElementById("coffee-quotes").innerHTML =
+       '<h2>"' + quote.text + '"</h2>';
+   })();
+</script>
