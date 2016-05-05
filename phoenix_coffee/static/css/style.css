@@ -147,24 +147,6 @@ nav a {
     padding: 25px;
     display: inline-block;
 }
-.banner_bottom ul {
-    margin-bottom: 0;
-}
-@media(max-width:1199px) {
-    ul.banner-social-buttons {
-        float: left;
-        margin-top: 15px;
-    }
-    ;
-}
-@media(max-width:767px) {
-    .banner_bottom h2 {
-        margin: 0;
-        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
-        font-size: 3em;
-    }
-    ;
-}
 /*Slider*/
 
 .carousel,
@@ -358,11 +340,38 @@ input#password {
     margin-bottom: 10px;
     display: block;
 }
-.login .btn {
+.login .btn,
+input[type=submit] {
     background-color: #1e1e1e;
     color: #f7f7f7;
+    border:0;
 }
-.login .btn:hover {
+.login .btn:hover,
+input[type=submit]:hover {
     background-color: #004F34;
     color: #f7f7f7;
+    border:0;
+}
+/*Contact*/
+.store {
+  display: none;
+}
+select#stores{
+    background: #fff;
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    height: 34px;  
+    color: #555;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.checkbox label{
+    padding-left: 0;
+}
+.checkbox input[type=checkbox]{
+    margin-left: 130px;
+    margin-top: 5px;
 }

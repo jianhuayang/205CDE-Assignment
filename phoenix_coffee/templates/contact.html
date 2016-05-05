@@ -1,59 +1,43 @@
 {% extends 'base.html' %}
 {% block content %}
-{% include 'main_header.html'%}  
+{% include 'main_header.html'%}
 <section>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <h2>Opening Times</h2>
-                <div id="schedule">
-                    <table class="table table-striped table-hover">
-                        <tbody>
-                            <tr>
-                                <td>Monday</td>
-                                <td>06:00 to 21:30</td>
-                            </tr>
-                            <tr>
-                                <td>Tuesday</td>
-                                <td>06:00 to 21:30</td>
-                            </tr>
-                            <tr>
-                                <td>Wednesday</td>
-                                <td>06:00 to 21:30</td>
-                            </tr>
-                            <tr>
-                                <td>Thursday</td>
-                                <td>06:00 to 21:30</td>
-                            </tr>
-                            <tr>
-                                <td>Friday</td>
-                                <td>06:00 to 21:30</td>
-                            </tr>
-                            <tr>
-                                <td>Saturday</td>
-                                <td>08:00 to 21:00</td>
-                            </tr>
-                            <tr>
-                                <td>Sunday</td>
-                                <td>08:00 to 21:00</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <h2>Contact Details</h2>
-                <p>20 Broadgate<br>
-                Coventry<br>
-                West Midlands<br>
-                CV1 1FP<br>
-                United Kingdom</p>
-                <p>024 54637253</p>
-            </div>
-            <div class="col-lg-6">
-                <h2>Contact Form</h2>{% include 'flash.html' %} {{
-                wtf.quick_form(contact) }}
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2>Store</h2>
+        <select name="stores" id="stores">
+          <option value="0"> Select Store</option>
+          <option value="1"> Birmingham</option>
+          <option value="2"> Coventry</option>
+          <option value="3"> Leamington Spa</option>
+          <option value="4"> Warwick</option>
+        </select>
+
+        <div class='store' id="1">{% include 'stores/birmingham.html'%}</div>
+        <div class='store' id="2">{% include 'stores/coventry.html'%}</div>
+        <div class='store' id="3">{% include 'stores/leamington.html'%}</div>
+        <div class='store' id="4">{% include 'stores/warwick.html'%}</div>
+      </div>
+      <script type="text/javascript">
+        document.getElementById('stores').onchange = function() {
+          var i = 1;
+          var storeDiv = document.getElementById(i);
+          while (storeDiv) {
+            storeDiv.style.display = 'none';
+            storeDiv = document.getElementById(++i);
+          }
+          document.getElementById(this.value).style.display = 'block';
+        };
+
+      </script>
+      <div class="col-lg-6">
+        <h2>Contact Form</h2>
+        {% include 'flash.html' %}
+        {{wtf.quick_form(contact)}}
+      </div>
     </div>
+  </div>
 </section>
 {% include 'footer.html'%}
 {% endblock %}

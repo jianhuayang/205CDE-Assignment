@@ -1,5 +1,7 @@
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS contact;
+DROP TABLE IF EXISTS mailing;
+DROP TRIGGER IF EXISTS mailingTrigger;
 
 CREATE TABLE `user` (
 	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
@@ -18,10 +20,29 @@ CREATE TABLE `contact` (
 	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
 	`name`	VARCHAR(100),
 	`email`	VARCHAR(150),
-	`message`	TEXT
+	`message`	TEXT,
+	`mailing` INTEGER(1)
 );
 
-INSERT INTO `contact` (id,name,email,message) VALUES (
-1,'Benjamin Bogdanovic','benjamin@gmail.com','Best coffee evere!'),
-(2,'Oliver Bogdanovic','oliver@gmail.com','Amazing cofeee!'),
-(3,'Harrison Stevens','harrison.stevens10@hotmail.co.uk','Love the coffee!');
+INSERT INTO `contact` (id,name,email,message,mailing) VALUES 
+(1,'Benjamin Bogdanovic','benjamin@gmail.com','Best coffee evere!',1),
+(2,'Oliver Bogdanovic','oliver@gmail.com','Amazing cofeee!',1),
+(3,'Harrison Stevens','harrison.stevens10@hotmail.co.uk','Love the coffee!',1);
+
+CREATE TABLE `mailing` (
+	`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`name`	VARCHAR(100),
+	`email`	VARCHAR(150)
+);
+
+INSERT INTO `mailing` (id,name,email) VALUES 
+(1,'Benjamin Bogdanovic','benjamin@gmail.com'),
+(2,'Oliver Bogdanovic','oliver@gmail.com'),
+(3,'Harrison Stevens','harrison.stevens10@hotmail.co.uk');
+
+CREATE TRIGGER `mailingTrigger`
+AFTER INSERT ON `contact` 
+WHEN new.mailing = 1
+BEGIN
+INSERT INTO mailing (name, email) VALUES (new.name , new.email);
+END;

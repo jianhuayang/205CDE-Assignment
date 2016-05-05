@@ -1,7 +1,7 @@
 from phoenix_coffee import app
 from flask import flash, redirect, url_for, render_template,request
 from flask_bootstrap import Bootstrap
-from wtforms import Form, StringField, TextAreaField, SubmitField, form, fields, validators
+from wtforms import Form, StringField, TextAreaField, SubmitField, BooleanField, form, fields, validators
 from wtforms.validators import DataRequired, Length, Email
 from flask_mail import Mail, Message
 import sqlite3
@@ -25,6 +25,7 @@ class ContactForm(Form):
     name = StringField('Name:', validators=[DataRequired(), Length(min=5)])
     email = StringField('Email:', validators=[DataRequired(), Email()])
     message = TextAreaField('Message:', validators=[DataRequired()])
+    mailing = BooleanField('Receive Newsletter:')
     submit = SubmitField('Submit')
 
 @app.route('/')
@@ -46,6 +47,7 @@ def contact():
         name = form.name.data
         email = form.email.data
         message = form.message.data
+        mailing = form.mailing.data
         msg = Message("Website Contact Form Message From " + form.name.data,
                       sender='website@benjaminbogdanovic.co.uk',
                       recipients=['test@benjaminbogdanovic.co.uk'])
@@ -53,12 +55,13 @@ def contact():
         From: %s
         Email: %s
         Message: %s
-        """ % (form.name.data, form.email.data, form.message.data)
+        Mailing: %s
+        """ % (form.name.data, form.email.data, form.message.data, form.mailing.data)
         mail.send(msg)
         flash("Message sent!")
         with sqlite3.connect(app.config['DATABASE']) as con:
             cur = con.cursor()
-            cur.execute("INSERT INTO contact (name, email, message) VALUES (?,?,?)", (name, email, message))
+            cur.execute("INSERT INTO contact (name, email, message, mailing) VALUES (?,?,?,?)", (name, email, message, mailing))
             con.commit()    
     return render_template('contact.html', banner="static/img/slider_4.jpg", title='Contact', contact=form)
 
@@ -165,6 +168,15 @@ class Contact(db.Model):
     name = db.Column(db.Text)
     email = db.Column(db.Text)
     message = db.Column(db.Text)
+    mailing = db.Column(db.Integer)
+
+    def __unicode__(self):
+        return self.username
+
+class Mailing(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.Text)
+    email = db.Column(db.Text)
 
     def __unicode__(self):
         return self.username
@@ -178,3 +190,4 @@ admin = admin.Admin(app, name='Phoenix Coffee Admin', index_view=AdminPannel(), 
 # Add views
 admin.add_view(ModelView(Contact, db.session, name='Contact Form', endpoint='contact'))
 admin.add_view(ModelView(User, db.session, name='Users', endpoint='users'))
+admin.add_view(ModelView(Mailing, db.session, name='Mailing', endpoint='Mailing'))
