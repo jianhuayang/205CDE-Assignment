@@ -21,3 +21,4 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + app.config['DATABASE_FILE
 app.config['SQLALCHEMY_ECHO'] = True
 
 import phoenix_coffee.views
+import phoenix_coffee.admin
